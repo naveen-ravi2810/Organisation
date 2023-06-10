@@ -52,7 +52,7 @@ export default function Home() {
                     <img className='w-12 h-12 md:w-16 md:h-16' src="https://thumbs.dreamstime.com/b/icon-school-bag-drawn-outline-style-gray-background-simple-black-line-logo-websites-mobile-apps-other-design-needs-80631841.jpg" alt="" />
                     <p className='pt-10 text-2xl font-mono'>SIGN IN</p>
                     <div>
-                        {/* <form onChange={()=>setLoginType()} > */}
+                        <form >
                             <div className='border-2 my-2 p-1 shadow-lg hover:cursor-pointer' onClick={()=>setLoginType("rootuser")}>
                                 <input type='radio'  checked={(logintype==="rootuser")} name='logintypeuser'  /> <span className='hover:cursor-default'>ROOT USER</span>
                                 <p className=' text-xs'> Organisation owner that performs tasks requiring unrestricted access.</p>
@@ -63,8 +63,9 @@ export default function Home() {
                                 <p className=' text-xs'>User within an account that performs daily tasks.</p>
                                 {/* <a className='text-xs font-thin text-blue-500 hover:underline' href="#">learn more.</a> */}
                             </div>
-                        {/* </form> */}
+                        </form>
                     </div>
+                    <form>
                     <div className='pb-6'>
                         {(logintype === "user")?(
                             <div>
@@ -116,8 +117,9 @@ export default function Home() {
                             </div>}
                     </div>
                     <div className='p-1'>
-                        <button className='border-2 bg-blue-600 p-1 w-full font-bold text-white' onClick={btn_login} disabled={!button_status}>Next</button>
+                        <button type='submit' className='border-2 bg-blue-600 p-1 w-full font-bold text-white' onClick={btn_login} disabled={!button_status}>Next</button>
                     </div>
+                    </form>
                     <div className='p-1'>
                         <p className='text-xs'>By continuing, you agree to the Service Customer Agreement 
                         or other agreement for services, and the Privacy Notice. 

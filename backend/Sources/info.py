@@ -3,7 +3,7 @@ from Models.token import root_required , organisation_required
 from flask_jwt_extended import get_jwt, jwt_required
 from flask import jsonify
 
-from Models.tables import users_tb,organisation_tb
+# from Models.tables import organisation_tb
 
 class Info(Resource):
     @root_required()
