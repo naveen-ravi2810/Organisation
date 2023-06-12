@@ -81,7 +81,7 @@ import bcrypt
 # Uncommand the below line to create a root admin
 # create_root_user()
 
-# create_roo1_organisation()
+
 
 
 import pymysql
