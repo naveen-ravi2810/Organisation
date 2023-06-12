@@ -17,10 +17,11 @@ class Login(Resource):
         if details is not None:
             if  (bcrypt.checkpw(password.encode('utf-8'), details['root_password'].encode('utf-8'))):
                 access_token = create_access_token(identity = details['root_id'], additional_claims = {
-                    'root_name' : details['root_name']
+                    'root_name' : details['root_name'],
+                    'organisation_id' : details['organisation_id']
                 })
-                return ({'status':True, "message":'Login Successfull', 'token':access_token})
-            return ({'status':False, 'message':'Incorrect Password'})
+                return jsonify({'status':True, "message":'Login Successfull', 'token':access_token})
+            return jsonify({'status':False, 'message':'Incorrect Password'})
         return jsonify({'status':False, 'message':"Invalid Username"})
 
         # Making in DynamoDb

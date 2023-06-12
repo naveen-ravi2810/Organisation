@@ -7,7 +7,7 @@ def root_required():
         def decorator(*args, **kwargs):
             verify_jwt_in_request()
             claims = get_jwt()
-            if claims["uc_pro"]== '1722':
+            if claims["root_name"]:
                 return fn(*args, **kwargs)
             else:
 

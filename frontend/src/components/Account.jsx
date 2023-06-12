@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {AiFillEdit, AiOutlineArrowDown, AiOutlineArrowRight} from 'react-icons/ai';
 
 function Account() {
 
   const [showaboutorganisation, setShowAboutOrganisation] = useState(true);
   const [showaccountdetails, setShowAccountDetails] = useState(true);
+
+  useEffect(()=>{
+    fetch('/user')
+  },[])
 
   return (
     <div className='p-3 space-y-7 h-screen'>

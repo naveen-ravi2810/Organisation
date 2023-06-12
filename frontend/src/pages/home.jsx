@@ -9,8 +9,8 @@ export default function Home() {
     const [rootpassword, setRootPassword] = useState('');
     const [organisationemail, setOragnisationEmail] = useState('');
     const [error, setError] = useState('');
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const button_status = (logintype==="user" && organisationcode.length === 12 && username.length>8 && userpassword.length>7) || (logintype==="rootuser" && organisationemail.match(validRegex) && rootpassword.length>7 )
+    // var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const button_status = (logintype==="user" && organisationcode.length === 12 && username.length>8 && userpassword.length>7) || (logintype==="rootuser" && organisationemail.length>2 && rootpassword.length>2 )
 
     async function btn_login(event){
         event.preventDefault();
@@ -22,7 +22,7 @@ export default function Home() {
             });
             const data = await response.json();
             if (data.success){
-                localStorage.setItem('Token',data.access_token);
+                localStorage.setItem('Token',data.token);
             }else{
                 setError(data.msg);
             }
@@ -33,8 +33,8 @@ export default function Home() {
                 body : JSON.stringify({ organisationemail, rootpassword })
             });
             const data = await response.json();
-            if (data.success){
-                localStorage.setItem('Admin_token',data.access_token);
+            if (data.status){
+                localStorage.setItem('Admin_token',data.token);
                 window.location.href = '/dashboard';
             }else{
                 setError(data.msg);

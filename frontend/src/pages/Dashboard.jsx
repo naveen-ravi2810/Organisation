@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 function Dashboard() {
 
   const [organisationdetails, setOrganisationDetails] = useState([]);
-
+  console.log(organisationdetails);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,7 +30,7 @@ function Dashboard() {
         <Navbar/>
         <hr />
         <div>
-          Oragnisation Type : {organisationdetails.org_id}
+          Oragnisation Type : 
         </div>
     </div>
   )

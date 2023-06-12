@@ -8,6 +8,7 @@ function Navbar() {
 
   const [userinfo, setUserInfo] = useState([]);
   const [dropdown, setDropdown] = useState(false);
+  console.log(userinfo);
 
   useEffect(()=>{
     fetch('/rootinfo',{
@@ -17,7 +18,7 @@ function Navbar() {
     .then(response => response.json())
     .then(data => {
       if (data.success){
-        setUserInfo(data.claims);
+        setUserInfo(data.organisation_details);
       }else{
         window.location.href = '/';
       }
@@ -37,7 +38,7 @@ function Navbar() {
       </div>
       <div className='flex w-1/3'>
         <ul className='flex w-full justify-end gap-3 items-center pr-10'>
-          <li><IoIosNotifications/></li>|<li><BiHelpCircle/></li>|<li>ORG:{userinfo.user_name}</li>
+          <li><IoIosNotifications/></li>|<li><BiHelpCircle/></li>|<li>ORG:{userinfo.organisation_id}</li>
           <li onClick={()=>setDropdown(!dropdown)}>
             <IoMdArrowDropdown/>
             {/* {dropdown && <ul>

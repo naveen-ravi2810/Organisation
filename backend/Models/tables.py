@@ -85,10 +85,13 @@ import bcrypt
 
 
 import pymysql
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-conn = pymysql.connect(host = 'database-1.cwljsueoels2.us-east-1.rds.amazonaws.com',
-                       user = 'admin',
-                       password = '12345678',
+conn = pymysql.connect(host = os.getenv('sqlhost'),
+                       user = os.getenv('sqluser'),
+                       password = os.getenv('sqlpassword'),
                        database= 'beorganised',
                        cursorclass=pymysql.cursors.DictCursor
                        )
